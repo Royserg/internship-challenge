@@ -1,8 +1,11 @@
 require('dotenv').config()
 
-// TODO: For docker probably there are some env variables to set-I rememvber something about that
-const PORT = process.env.PORT || 3001
+const {
+  PORT = 3001,
+  MONGODB_URI = 'mongodb://mongo:27017/internship'
+} = process.env
 
 module.exports = {
-  PORT
+  PORT,
+  MONGODB_URI
 }

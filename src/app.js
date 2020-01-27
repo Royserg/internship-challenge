@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors')
+const mongoose = require('mongoose')
+const { MONGODB_URI } = require('./utils/config')
 
 const vertexRouter = require('./controllers/vertexes')
 
@@ -12,5 +14,11 @@ app.use(express.json())
 
 // Controllers
 app.use('/api/vertexes', vertexRouter)
+
+// Connect to db
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 module.exports = app
